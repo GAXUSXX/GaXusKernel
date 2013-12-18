@@ -27,6 +27,8 @@
 #include <linux/hrtimer.h>
 #include <mach/cpufreq.h>
 
+#define CONFIG_MSM_CPU_FREQ_MAX 151200
+
 static DEFINE_MUTEX(emergency_shutdown_mutex);
 
 static int enabled;
