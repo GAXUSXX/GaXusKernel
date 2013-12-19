@@ -46,11 +46,13 @@
 #include "acpuclock.h"
 
 #define DEBUG 0
+#define CONFIG_MSM_CPU_FREQ_MIN 384000
 
 DEFINE_PER_CPU(struct msm_mpdec_cpudata_t, msm_mpdec_cpudata);
 EXPORT_PER_CPU_SYMBOL_GPL(msm_mpdec_cpudata);
 
 static bool mpdec_suspended = false;
+static int bricked_thermal_throttled = 0;
 #ifndef CONFIG_HAS_EARLYSUSPEND
 static struct notifier_block msm_mpdec_lcd_notif;
 #endif
