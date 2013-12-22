@@ -33,7 +33,7 @@ KERNEL_VERSION=`grep '^VERSION = ' ./Makefile | cut -d' ' -f3`
 KERNEL_PATCHLEVEL=`grep '^PATCHLEVEL = ' ./Makefile | cut -d' ' -f3`
 KERNEL_SUBLEVEL=`grep '^SUBLEVEL = ' ./Makefile | cut -d' ' -f3`
 export BUILD_KERNELVERSION="$KERNEL_VERSION.$KERNEL_PATCHLEVEL.$KERNEL_SUBLEVEL"
-
+CWMIMAGE_NAME="GaXusKernel-$BUILD_VERSION$KERNEL_VERSION"
 
 make_cwm_image()
 {
@@ -46,10 +46,10 @@ make_cwm_image()
     sed -e "s/@VERSION/$BUILD_LOCALVERSION/g" $KERNEL_DIR/release-tools/$TARGET_DEVICE/updater-script-$IMAGE_NAME.sed > ./tmp/META-INF/com/google/android/updater-script
     cd tmp && zip -rq ../cwm.zip ./* && cd ../
     SIGNAPK_DIR=$KERNEL_DIR/release-tools/signapk
-    java -jar $SIGNAPK_DIR/signapk.jar $SIGNAPK_DIR/testkey.x509.pem $SIGNAPK_DIR/testkey.pk8 cwm.zip $BUILD_LOCALVERSION-$IMAGE_NAME-signed.zip
+    java -jar $SIGNAPK_DIR/signapk.jar $SIGNAPK_DIR/testkey.x509.pem $SIGNAPK_DIR/testkey.pk8 cwm.zip $CWMIMAGE_NAME.zip
     rm cwm.zip
     rm -rf tmp
-    echo "  $BIN_DIR/$BUILD_LOCALVERSION-$IMAGE_NAME-signed.zip"
+    echo "  $BIN_DIR/$CWMIMAGE_NAME.zip"
 }
 
 
