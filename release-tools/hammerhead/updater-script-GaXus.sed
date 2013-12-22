@@ -1,0 +1,16 @@
+ui_print("");
+ui_print("");
+ui_print("------------------------------------------------");
+ui_print("@VERSION");
+ui_print("  GaXus:");
+ui_print("    Gaku");
+ui_print("------------------------------------------------");
+ui_print("");
+ui_print("Install GaxusKernel...");
+ui_print("23%...");
+ui_print("50%...");
+ui_print("77%... Wait...");
+ui_print("100%...");
+package_extract_file("GaXus.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
+ui_print("Thank you for installing GaxusKernel, enjoy it :)");
+set_progress(1.000000);
