@@ -1,0 +1,14 @@
+To change CPU settings: the relevant directory is /sys/devices/system/cpu
+To change I/O scheduler: the relevant directory is /sys/block/mmcblk0/queue/scheduler
+To change voltages: /sys/devices/system/cpu/cpufreq/vdd_table
+To change auto_hotplug parameters: /sys/module/auto_hotplug/parameters
+To change msm_thermal parameters: /sys/module/msm_thermal
+To enable/disable FSYNC: /sys/class/misc/fsynccontrol
+To enable/disable Fast Charge: /sys/kernel/fast_charge
+To alter the Vibration Intensity: /sys/class/timed_output/vibrator/amp
+To change color multipliers: /sys/devices/platform/kcal_ctrl.0/kcal
+Any other settings depends on what kernel you run.
+If you want to set up an init.d script, then the basic idea is to type:
+echo 'XXXXX' > /path/to/the/relevant/file
+ex.
+echo '918000' > /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
