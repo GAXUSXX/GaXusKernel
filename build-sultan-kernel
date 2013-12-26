@@ -33,7 +33,8 @@ KERNEL_VERSION=`grep '^VERSION = ' ./Makefile | cut -d' ' -f3`
 KERNEL_PATCHLEVEL=`grep '^PATCHLEVEL = ' ./Makefile | cut -d' ' -f3`
 KERNEL_SUBLEVEL=`grep '^SUBLEVEL = ' ./Makefile | cut -d' ' -f3`
 export BUILD_KERNELVERSION="$KERNEL_VERSION.$KERNEL_PATCHLEVEL.$KERNEL_SUBLEVEL"
-CWMIMAGE_NAME="GaXusKernel-$BUILD_VERSION$KERNEL_VERSION"
+KERNEL_VER=`cat .version`
+CWMIMAGE_NAME="GaXusKernel-$BUILD_VERSION$KERNEL_VER"
 
 make_cwm_image()
 {
