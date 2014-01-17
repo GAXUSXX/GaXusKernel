@@ -57,7 +57,7 @@ make_cwm_image()
 ## Set compiler location
 echo Setting compiler location...
 export ARCH=arm
-export CROSS_COMPILE=/home/gaxus/nexus5/toolchain2/bin/arm-linux-androideabi-
+export CROSS_COMPILE=/home/gaxus/nexus5/toolchain-linaro/bin/arm-linux-gnueabihf-
 
 ## Build Sultan kernel
 make -j$MAKE ARCH=arm
