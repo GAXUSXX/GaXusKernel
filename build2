@@ -13,6 +13,9 @@ export KBUILD_BUILD_VERSION="1"
 export KBUILD_BUILD_USER="GaXus"
 export KBUILD_BUILD_HOST="MSM"
 
+#modpost delete
+cp scripts/Makefile.modpost1 scripts/Makefile.modpost
+
 ###########################################################
 # set android version
 ###########################################################
@@ -63,10 +66,9 @@ export CROSS_COMPILE=/home/gaxus/nexus5/exptool4.7/bin/arm-cortex_a15-linux-gnue
 make -j$MAKE ARCH=arm
 
 
-
-
-
 cd $KERNEL_DIR
 
-sh ./build2
+#modpost reborn
+cp scripts/Makefile.modpost0 scripts/Makefile.modpost
 
+sh ./build3
